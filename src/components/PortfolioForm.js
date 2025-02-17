@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+// src/components/PortfolioForm.js
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const PortfolioForm = () => {
-  // State to hold form data
+const PortfolioForm = ({ updateUserData }) => {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [skills, setSkills] = useState("");
@@ -16,37 +16,44 @@ const PortfolioForm = () => {
   });
   const [message, setMessage] = useState("");
 
-  // Handle adding a new project input row
+  // Update parent with current form data whenever any state changes
+  useEffect(() => {
+    updateUserData({
+      name,
+      bio,
+      skills: skills
+        .split(",")
+        .map((skill) => skill.trim())
+        .filter((skill) => skill),
+      projects,
+      socialLinks,
+    });
+  }, [name, bio, skills, projects, socialLinks, updateUserData]);
+
   const addProject = () => {
     setProjects([...projects, { title: "", description: "", link: "" }]);
   };
 
-  // Handle project input change
   const handleProjectChange = (index, event) => {
     const newProjects = [...projects];
     newProjects[index][event.target.name] = event.target.value;
     setProjects(newProjects);
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Prepare skills array from comma-separated input
-    const skillsArray = skills.split(",").map((skill) => skill.trim());
-
-    // Prepare data
-    const portfolioData = {
-      name,
-      bio,
-      skills: skillsArray,
-      projects,
-      socialLinks,
-    };
-
-    // Send data to backend API
+    // Optionally, you can save data to the backend here as well.
     axios
-      .post("http://localhost:5000/api/portfolio/save", portfolioData)
+      .post("http://localhost:5000/api/portfolio/save", {
+        name,
+        bio,
+        skills: skills
+          .split(",")
+          .map((skill) => skill.trim())
+          .filter((skill) => skill),
+        projects,
+        socialLinks,
+      })
       .then((response) => {
         setMessage("Portfolio saved successfully! ID: " + response.data.id);
       })
