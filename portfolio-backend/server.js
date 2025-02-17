@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB Connection
+// Connect to MongoDB
 mongoose
   .connect("mongodb://localhost:27017/portfolio", {
     useNewUrlParser: true,
@@ -19,6 +19,10 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+
+// Import portfolio routes
+const portfolioRoutes = require("./routes/portfolio");
+app.use("/api/portfolio", portfolioRoutes);
 
 app.get("/", (req, res) => {
   res.send("Portfolio Backend is running!");

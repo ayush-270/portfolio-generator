@@ -1,10 +1,10 @@
 import React from "react";
-import TestBackend from "./components/TestBackend";
+import PortfolioForm from "./components/PortfolioForm";
 
 function App() {
   return (
     <div className="App">
-      <TestBackend />
+      <PortfolioForm />
     </div>
   );
 }
