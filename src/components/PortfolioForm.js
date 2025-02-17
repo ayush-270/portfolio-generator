@@ -65,14 +65,14 @@ const PortfolioForm = ({ updateUserData }) => {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Create Your Portfolio</h2>
+      <h2 className="fade-in">Create Your Portfolio</h2>
       {message && <div className="alert alert-info">{message}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control form-control-dark"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
@@ -82,7 +82,7 @@ const PortfolioForm = ({ updateUserData }) => {
         <div className="mb-3">
           <label className="form-label">Bio</label>
           <textarea
-            className="form-control"
+            className="form-control form-control-dark"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             placeholder="Tell us about yourself"
@@ -93,7 +93,7 @@ const PortfolioForm = ({ updateUserData }) => {
           <label className="form-label">Skills (comma separated)</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control form-control-dark"
             value={skills}
             onChange={(e) => setSkills(e.target.value)}
             placeholder="e.g. JavaScript, React, Node.js"
@@ -107,7 +107,7 @@ const PortfolioForm = ({ updateUserData }) => {
                 <label className="form-label">Title</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control form-control-dark"
                   name="title"
                   value={project.title}
                   onChange={(e) => handleProjectChange(index, e)}
@@ -118,7 +118,7 @@ const PortfolioForm = ({ updateUserData }) => {
               <div className="mb-2">
                 <label className="form-label">Description</label>
                 <textarea
-                  className="form-control"
+                  className="form-control form-control-dark"
                   name="description"
                   value={project.description}
                   onChange={(e) => handleProjectChange(index, e)}
@@ -129,7 +129,7 @@ const PortfolioForm = ({ updateUserData }) => {
                 <label className="form-label">Link</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control form-control-dark"
                   name="link"
                   value={project.link}
                   onChange={(e) => handleProjectChange(index, e)}
@@ -140,7 +140,7 @@ const PortfolioForm = ({ updateUserData }) => {
           ))}
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-dark-custom"
             onClick={addProject}
           >
             Add Another Project
@@ -151,7 +151,7 @@ const PortfolioForm = ({ updateUserData }) => {
           <div className="mb-2">
             <input
               type="text"
-              className="form-control"
+              className="form-control form-control-dark"
               value={socialLinks.linkedin}
               onChange={(e) =>
                 setSocialLinks({ ...socialLinks, linkedin: e.target.value })
@@ -162,7 +162,7 @@ const PortfolioForm = ({ updateUserData }) => {
           <div className="mb-2">
             <input
               type="text"
-              className="form-control"
+              className="form-control form-control-dark"
               value={socialLinks.github}
               onChange={(e) =>
                 setSocialLinks({ ...socialLinks, github: e.target.value })
@@ -173,7 +173,7 @@ const PortfolioForm = ({ updateUserData }) => {
           <div className="mb-2">
             <input
               type="text"
-              className="form-control"
+              className="form-control form-control-dark"
               value={socialLinks.twitter}
               onChange={(e) =>
                 setSocialLinks({ ...socialLinks, twitter: e.target.value })
@@ -182,7 +182,7 @@ const PortfolioForm = ({ updateUserData }) => {
             />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-dark-custom">
           Save Portfolio
         </button>
       </form>

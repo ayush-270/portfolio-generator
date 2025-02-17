@@ -1,0 +1,120 @@
+/* ===== Dark Theme Global Styles ===== */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ===== Navbar Customization ===== */
+.navbar-dark-custom {
+    background-color: #1f1f1f !important;
+    border-bottom: 1px solid #333;
+}
+
+/* ===== Button Styling ===== */
+.btn-dark-custom {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-dark-custom:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+/* ===== Form Controls (Text Boxes) ===== */
+.form-control-dark {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control-dark::placeholder {
+    color: #e0e0e0;
+    opacity: 1;
+    /* Ensure full visibility */
+}
+
+.form-control-dark:focus {
+    background-color: #1e1e1e;
+    /* Keep it dark */
+    border-color: #5e5e5e;
+    box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+    color: #e0e0e0;
+}
+
+/* ===== Card Styling ===== */
+.card-dark {
+    background-color: #1e1e1e;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-dark-template {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-dark-template:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card-dark-template.selected {
+    border: 2px solid #ff9800;
+}
+
+.project-card-dark {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.project-card-dark:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Interactive Hover for Links ===== */
+a {
+    color: #ff9800;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffc107;
+}
+
+/* ===== Animatory Effects ===== */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1.5s forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== Responsive Adjustments for Text Boxes ===== */
+@media (max-width: 576px) {
+    .form-control-dark {
+        font-size: 14px;
+        padding: 0.5rem;
+    }
+}

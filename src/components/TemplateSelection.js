@@ -9,7 +9,7 @@ const TemplateSelection = ({ selectedTemplate, setSelectedTemplate }) => {
         {templates.map((template) => (
           <div key={template.id} className="col-md-6 mb-3">
             <div
-              className={`card ${
+              className={`card card-dark-template ${
                 selectedTemplate === template.id ? "border-primary" : ""
               }`}
               onClick={() => setSelectedTemplate(template.id)}

@@ -17,20 +17,20 @@ export const renderTemplate = (templateHtml, userData) => {
       : "<p>No skills provided.</p>";
   output = output.replace(/{{skills}}/g, skillsHtml);
 
-  // Replace projects: generate card layouts for projects
+  // Replace projects: generate dark-themed card layouts for projects
   const projectsHtml =
     userData.projects && userData.projects.length
       ? userData.projects
           .map(
             (project) =>
               `<div class="col-md-4">
-             <div class="card project-card mb-3">
+             <div class="card project-card-dark">
                <div class="card-body">
                  <h5 class="card-title">${project.title}</h5>
                  <p class="card-text">${project.description || ""}</p>
                  ${
                    project.link
-                     ? `<a href="${project.link}" target="_blank" class="btn btn-primary btn-sm">View Project</a>`
+                     ? `<a href="${project.link}" target="_blank" class="btn btn-dark-custom btn-sm">View Project</a>`
                      : ""
                  }
                </div>
@@ -41,7 +41,7 @@ export const renderTemplate = (templateHtml, userData) => {
       : "<p>No projects provided.</p>";
   output = output.replace(/{{projects}}/g, projectsHtml);
 
-  // Replace socialLinks (only for Template 4)
+  // Replace socialLinks (for Template 4 if applicable)
   const socialLinksHtml = userData.socialLinks
     ? Object.entries(userData.socialLinks)
         .filter(([key, value]) => value)
